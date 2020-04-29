@@ -4,20 +4,39 @@
     <link rel="stylesheet" href="exercises.css">
   </head>
   <body>
-    
+
     <div class="quantities">
       <img src="assets/plush-android.jpg" width="195" height="195">
       <br>
-      
-      <button>Add</button>
-      <button>Remove</button>
+
+      <button id="btnAdd">Add</button>
+      <button id="btnRemove">Remove</button>
       <br>
-      
-      Quantity <input type="text" value="0">
+
+      Quantity <input id="intUpdateQuantity" type="text" value="0">
     </div>
-    
+
     <script>
-      // ADD JAVASCRIPT HERE
+      var intQuantity = 0; // declare and set quantity to start at 0
+      var intUpdateQuantity = document.getElementById("intUpdateQuantity"); // selects HTML element to display quantity
+      var addBtn = document.getElementById("btnAdd"); // selects HTML add button
+      var removeBtn = document.getElementById("btnRemove"); // selects HTML remove button
+
+      function addItem()
+      {
+        intQuantity = intQuantity + 1; // adds 1 to current value of quantity
+        intUpdateQuantity.value = intQuantity; // refresh the HTML quantity total to reflect new quantity
+      }
+
+      function removeItem()
+      {
+        intQuantity = intQuantity - 1; // subtract 1 to current value of quantity
+        intUpdateQuantity.value = intQuantity;// refresh the HTML quantity total to reflect new quantity
+      }
+
+      // executes the addItem() & removeItem() functions on button click
+      addBtn.onclick = addItem;
+      removeBtn.onclick = removeItem;
 
     </script>
   </body>

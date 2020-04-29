@@ -4,41 +4,56 @@
     <link rel="stylesheet" href="exercises.css">
   </head>
   <body>
-    
+
     <div class="quantities">
       <img src="assets/plush-android.jpg" width="195" height="195">
       <br>
-      
-      <button id="add">Add</button>
-      <button id="remove">Remove</button>
-      <br>
-      
-      Quantity <input id="updateQuantity" type="text" value="0">
 
-      <button class="btn-checkout">checkout</button>
+      <button id="btnAdd">Add</button>
+      <button id="btnRemove">Remove</button>
+      <br>
+
+      Quantity <input id="intUpdateQuantity" type="text" value="0">
+
+      <button id="btnCheckout" class="btn-checkout">Checkout</button>
     </div>
-    
+
     <script>
-      var quantity = 0; // declare and set quantity to start at 0
+      var intQuantity = 0; // declare and set quantity to start at 0
 
       // selects HTML elements
-      var updateQuantity = document.getElementById("updateQuantity");
-      var addBtn = document.getElementById("add");
-      var removeBtn = document.getElementById("remove");
+      var intUpdateQuantity = document.getElementById("intUpdateQuantity");
+      var addBtn = document.getElementById("btnAdd");
+      var removeBtn = document.getElementById("btnRemove");
+      var checkoutBtn = documet.getElementById("btnCheckout";)
 
 
-      function addItem(){
-        quantity = quantity + 1; // adds 1 to current value of quantity
-        updateQuantity.value = quantity; // refresh the HTML quantity total to reflect new quantity
+      function addItem()
+      {
+        intQuantity = intQuantity + 1; // adds 1 to current value of quantity
+        intUpdateQuantity.value = intQuantity; // refresh the HTML quantity total to reflect new quantity
       }
-      function removeItem(){
-        quantity = quantity - 1; // subtract 1 to current value of quantity
-        updateQuantity.value = quantity;// refresh the HTML quantity total to reflect new updateQuantity
+      function removeItem()
+      {
+        intQuantity = intQuantity - 1; // subtract 1 to current value of quantity
+        intUpdateQuantity.value = intQuantity;// refresh the HTML quantity total to reflect new updateQuantity
+      }
+      function checkout()
+      {
+        if (intQuantity > 0)
+        {
+          alert("Thank you for your order.");
+        }
+        else
+        {
+          alert("You cannot checkout. Your cart is empty.")
+        }
       }
 
       // executes the above functions on button click
       addBtn.onclick = addItem;
       removeBtn.onclick = removeItem;
+      checkoutBtn.onclick = checkout;
     </script>
   </body>
 </html>
